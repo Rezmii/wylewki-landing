@@ -15,7 +15,6 @@ import {
   ShieldCheck,
   Clock,
   XCircle,
-  Layers,
   Maximize2,
   Hammer,
   Factory,
@@ -26,6 +25,14 @@ import {
   ArrowUpRight,
   MapPin,
   Mail,
+  Paintbrush, // Do systemu malowanego
+  Layers, // Do systemu wylewanego (już chyba masz)
+  Sparkles, // Do systemu Deco
+  ShieldAlert, // Do systemu BHP
+  History, // Do "35 lat tradycji"
+  Award, // Do "ISO"
+  PackageOpen, // Do "Małych partii / Elastyczności"
+  Globe2, // Do "Made in EU"
 } from "lucide-react";
 
 export default function Home() {
@@ -105,31 +112,29 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* --- 1. HERO SECTION (Dopracowana) --- */}
+      {/* --- 1. HERO SECTION (Zaktualizowana: C-GUARD System) --- */}
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* LEWA KOLUMNA: Tekst i CTA */}
             <div className="flex flex-col gap-6">
-              {/* Badge / Tag nad nagłówkiem */}
+              {/* Badge */}
               <div className="inline-flex items-center w-fit rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-sm font-medium text-blue-800">
                 <span className="flex h-2 w-2 rounded-full bg-blue-600 mr-2"></span>
-                Bezpośredni import ze Słowenii
+                Oficjalny Partner Chemcolor Sevnica
               </div>
 
-              {/* H1: USP */}
+              {/* H1: Konkretny Produkt */}
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.1]">
-                Specjalistyczne Wylewki Przemysłowe. <br />
-                <span className="text-blue-600">
-                  Jakość Premium w Polskiej Cenie.
-                </span>
+                Systemy Posadzkowe <br />
+                <span className="text-blue-600">C-GUARD® Epoxy</span>
               </h1>
 
-              {/* H2: Wyjaśnienie */}
+              {/* H2: Opis techniczny */}
               <p className="text-lg text-slate-600 leading-relaxed max-w-xl">
-                Omiń drogich pośredników. Dostarczamy certyfikowane wylewki
-                (Chemcolor Sevnica) bezpośrednio z fabryki na Twój plac budowy.
-                Sprawdzone przez liderów rynku.
+                Bezpośredni import przemysłowych systemów żywicznych ze
+                Słowenii. Rozwiązania dla hal produkcyjnych i magazynów o
+                wysokim obciążeniu mechanicznym (Heavy Duty).
               </p>
 
               {/* Przyciski CTA */}
@@ -148,48 +153,44 @@ export default function Home() {
                   className="h-12 px-8 text-base border-slate-300"
                   onClick={scrollToOffer}
                 >
-                  <ArrowRight className="mr-2 h-5 w-5" /> Sprawdź Parametry
+                  <ArrowRight className="mr-2 h-5 w-5" />
+                  Parametry C-GUARD®
                 </Button>
               </div>
 
-              {/* Social Proof / Trust Badges (Małe ikonki pod przyciskami) */}
+              {/* Trust Badges */}
               <div className="flex flex-wrap gap-x-6 gap-y-2 mt-6 text-sm text-slate-500 font-medium">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="h-5 w-5 text-green-500" />
-                  Dostawa 48-72h
+                  ISO 9001 / 14001
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="h-5 w-5 text-green-500" />
-                  Certyfikaty UE
+                  Atesty CE
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="h-5 w-5 text-green-500" />
-                  Wsparcie Techniczne
+                  Technologia Solvent-Free
                 </div>
               </div>
             </div>
 
-            {/* PRAWA KOLUMNA: Zdjęcie (Placeholder) */}
+            {/* PRAWA KOLUMNA: Zdjęcie (Placeholder - tu docelowo dasz zdjęcie worka/posadzki) */}
             <div className="relative mx-auto w-full max-w-[500px] lg:max-w-none">
-              {/* Tło dekoracyjne (cień/obrys) */}
               <div className="absolute -top-4 -right-4 w-full h-full bg-blue-100 rounded-2xl -z-10"></div>
-
-              {/* Zdjęcie główne */}
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-100 aspect-[4/3]">
-                {/* Używamy zdjęcia z Unsplash jako placeholder. 
-                    TEMAT: Industrial flooring, construction, warehouse. */}
                 <Image
                   src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2069&auto=format&fit=crop"
-                  alt="Wylewka przemysłowa w hali magazynowej"
+                  alt="Posadzka przemysłowa C-GUARD Epoxy"
                   fill
                   className="object-cover"
                   priority
                 />
 
-                {/* Pływający element "Trust Box" na zdjęciu */}
+                {/* Pływający element "Trust Box" */}
                 <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur p-4 rounded-lg shadow-lg border border-slate-100 max-w-[200px]">
                   <p className="text-xs text-slate-500 uppercase font-bold mb-1">
-                    Ostatnia realizacja
+                    Wdrożono u lidera
                   </p>
                   <p className="text-sm font-semibold text-slate-900">
                     Toi Toi Polska Sp. z o.o.
@@ -198,7 +199,7 @@ export default function Home() {
                     {[1, 2, 3, 4, 5].map((i) => (
                       <div
                         key={i}
-                        className="h-1.5 w-1.5 rounded-full bg-green-500"
+                        className="h-1.5 w-1.5 rounded-full bg-blue-600"
                       ></div>
                     ))}
                   </div>
@@ -226,164 +227,339 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. KORZYŚCI (Placeholder) */}
+      {/* --- 2. SEKCJA ZAUFANIE (Why Us - Chemcolor Specific) --- */}
       <section
         id="dlaczego-my"
         className="py-24 px-6 max-w-7xl mx-auto bg-slate-50/50"
       >
         {/* Nagłówek Sekcji */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-blue-600 font-semibold tracking-wide uppercase text-sm mb-3">
-            Twoja Przewaga Konkurencyjna
-          </h2>
+          <div className="inline-flex items-center gap-2 rounded-full bg-blue-100 px-3 py-1 text-xs font-bold text-blue-700 mb-4 uppercase tracking-wider">
+            <Globe2 className="h-3 w-3" />
+            Made in Slovenia (EU)
+          </div>
           <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-            Dlaczego branża budowlana przepłaca?
+            Za Twoim zamówieniem stoi <br />
+            <span className="text-blue-600">
+              35 lat doświadczenia producenta
+            </span>
           </h3>
           <p className="text-lg text-slate-600">
-            Większość firm płaci za logo dystrybutora, magazynowanie i sieć
-            handlowców. My zmieniamy zasady gry. Dostarczamy ten sam standard
-            techniczny, eliminując zbędne koszty.
+            Jako wyłączny partner na ten segment, łączymy zwinność polskiej
+            obsługi z potężnym zapleczem technologicznym fabryki{" "}
+            <strong>Chemcolor Sevnica</strong>.
           </p>
         </div>
 
-        {/* Grid z Kartami */}
+        {/* Grid z Kartami - KONKRETY OD PRODUCENTA */}
         <div className="grid md:grid-cols-3 gap-8">
-          {/* Karta 1: CENA */}
+          {/* Karta 1: TRADYCJA */}
           <Card className="border-slate-200 shadow-sm hover:shadow-md transition-shadow">
             <CardHeader>
               <div className="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <TrendingDown className="h-6 w-6 text-blue-600" />
+                <History className="h-6 w-6 text-blue-600" />
               </div>
-              <CardTitle className="text-xl">Optymalizacja Kosztów</CardTitle>
+              <CardTitle className="text-xl">Technologia od 1980 r.</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="flex items-start gap-3 text-slate-500 text-sm">
-                <XCircle className="h-5 w-5 text-red-400 shrink-0" />
-                <p>Drogie marki zachodnie z wysoką marżą marketingową.</p>
-              </div>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Chemcolor to firma rodzinna z tradycjami, gdzie wiedza
+                przechodzi z pokolenia na pokolenie. To nie jest "startup". To
+                dekady udoskonalania receptur epoksydowych i poliuretanowych.
+              </p>
               <div className="h-px bg-slate-100 w-full my-2"></div>
-              <div className="flex items-start gap-3 text-slate-900 font-medium">
-                <CheckCircle2 className="h-5 w-5 text-green-500 shrink-0" />
-                <p>
-                  Bezpośredni import. Oszczędności rzędu 15-20% na materiale.
-                </p>
+              <div className="flex items-center gap-2 text-slate-900 font-medium text-sm">
+                <CheckCircle2 className="h-4 w-4 text-green-500 shrink-0" />
+                Stabilność i powtarzalność produkcji
               </div>
             </CardContent>
           </Card>
 
-          {/* Karta 2: LOGISTYKA */}
-          <Card className="border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+          {/* Karta 2: JAKOŚĆ (ISO) - TO JEST KLUCZ B2B */}
+          <Card className="border-slate-200 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+            {/* Ozdobny pasek */}
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-green-500"></div>
             <CardHeader>
               <div className="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <Truck className="h-6 w-6 text-blue-600" />
+                <Award className="h-6 w-6 text-blue-600" />
               </div>
-              <CardTitle className="text-xl">Logistyka "On-Site"</CardTitle>
+              <CardTitle className="text-xl">
+                Standardy ISO 9001 & 14001
+              </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="flex items-start gap-3 text-slate-500 text-sm">
-                <XCircle className="h-5 w-5 text-red-400 shrink-0" />
-                <p>Przeładunki, lokalne hurtownie, opóźnienia w dostawach.</p>
-              </div>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Bezpieczeństwo Twojej inwestycji gwarantują niezależne
+                certyfikaty. Zarządzanie jakością (ISO 9001) oraz dbałość o
+                środowisko (ISO 14001).
+              </p>
               <div className="h-px bg-slate-100 w-full my-2"></div>
-              <div className="flex items-start gap-3 text-slate-900 font-medium">
-                <CheckCircle2 className="h-5 w-5 text-green-500 shrink-0" />
-                <p>
-                  Dostawa prosto z fabryki na Twój plac budowy. Pełna kontrola.
-                </p>
+              <div className="flex items-center gap-2 text-slate-900 font-medium text-sm">
+                <CheckCircle2 className="h-4 w-4 text-green-500 shrink-0" />
+                Pełna certyfikacja UE (CE, EN)
               </div>
             </CardContent>
           </Card>
 
-          {/* Karta 3: JAKOŚĆ */}
+          {/* Karta 3: ELASTYCZNOŚĆ (Twój Atut dla małych firm) */}
           <Card className="border-slate-200 shadow-sm hover:shadow-md transition-shadow">
             <CardHeader>
               <div className="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <ShieldCheck className="h-6 w-6 text-blue-600" />
+                <PackageOpen className="h-6 w-6 text-blue-600" />
               </div>
-              <CardTitle className="text-xl">Jakość i Certyfikacja</CardTitle>
+              <CardTitle className="text-xl">
+                Elastyczność ("Small Batch")
+              </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="flex items-start gap-3 text-slate-500 text-sm">
-                <XCircle className="h-5 w-5 text-red-400 shrink-0" />
-                <p>
-                  Tanie zamienniki o niepewnych parametrach i braku atestów.
-                </p>
-              </div>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Wielkie korporacje wymagają zamówień na tony. My rozumiemy
+                realia. Dzięki elastycznej linii produkcyjnej realizujemy
+                zamówienia już od 25 kg (jedno wiadro).
+              </p>
               <div className="h-px bg-slate-100 w-full my-2"></div>
-              <div className="flex items-start gap-3 text-slate-900 font-medium">
-                <CheckCircle2 className="h-5 w-5 text-green-500 shrink-0" />
-                <p>
-                  Pełna certyfikacja CE/EN. Parametry potwierdzone kartami
-                  technicznymi.
-                </p>
+              <div className="flex items-center gap-2 text-slate-900 font-medium text-sm">
+                <CheckCircle2 className="h-4 w-4 text-green-500 shrink-0" />
+                Dopasowanie pod małe i duże projekty
               </div>
             </CardContent>
           </Card>
         </div>
 
-        {/* Dodatkowy pasek "Bonusowy" - Szybkość */}
-        <div className="mt-12 bg-white border border-slate-200 rounded-xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+        {/* Pasek Bonusowy - Podsumowanie Korzyści */}
+        <div className="mt-12 bg-white border border-slate-200 rounded-xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
           <div className="flex items-center gap-4">
             <div className="bg-green-100 p-3 rounded-full">
-              <Clock className="h-6 w-6 text-green-600" />
+              <TrendingDown className="h-6 w-6 text-green-600" />
             </div>
             <div>
-              <h4 className="font-bold text-slate-900">Czas to pieniądz</h4>
+              <h4 className="font-bold text-slate-900">Direct-to-Site Model</h4>
               <p className="text-sm text-slate-600">
-                Nasze wylewki szybkowiążące pozwalają na szybsze oddanie
-                inwestycji.
+                Towar jedzie prosto z Słowenii na Twoją budowę. Omijasz marże
+                hurtowni i koszty magazynowania.
               </p>
             </div>
           </div>
-          <Button variant="outline" onClick={scrollToContact}>
-            Sprawdź dostępność
+          <Button
+            variant="outline"
+            onClick={scrollToContact}
+            className="whitespace-nowrap"
+          >
+            Sprawdź ile zaoszczędzisz
           </Button>
         </div>
       </section>
 
-      {/* --- 3. SEKCJA O PRODUKCIE (Technical Specs - WERSJA HYBRYDOWA) --- */}
+      {/* --- SEKCJA PAKIETY SYSTEMOWE (Nowość) --- */}
+      <section className="py-24 px-6 max-w-7xl mx-auto">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="text-blue-600 font-semibold tracking-wide uppercase text-sm mb-3">
+            Rozwiązania "Szyte na miarę"
+          </h2>
+          <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+            Dobierz system do obciążeń Twojej hali
+          </h3>
+          <p className="text-lg text-slate-600">
+            Nie każda posadzka wymaga pancernej wylewki. Oferujemy trzy
+            sprawdzone systemy C-GUARD®, od ekonomicznego odpylenia po
+            ekstremalną wytrzymałość.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-3 gap-8 items-start">
+          {/* SYSTEM 1: ECONOMY (Malowany) */}
+          <Card className="border-slate-200 shadow-sm hover:shadow-md transition-all relative overflow-hidden">
+            <CardHeader className="pb-4">
+              <div className="h-12 w-12 bg-slate-100 rounded-lg flex items-center justify-center mb-4">
+                <Paintbrush className="h-6 w-6 text-slate-600" />
+              </div>
+              <CardTitle className="text-xl">System ECONOMY</CardTitle>
+              <p className="text-sm text-slate-500 font-medium">
+                Powłoka Malowana (Roller Coating)
+              </p>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="text-3xl font-bold text-slate-900">
+                Lekkie{" "}
+                <span className="text-lg font-normal text-slate-500">
+                  obciążenia
+                </span>
+              </div>
+              <p className="text-slate-600 text-sm">
+                Ekonomiczne rozwiązanie do zabezpieczenia i odpylenia betonu.
+                Aplikacja wałkiem. Idealne tam, gdzie nie ma ciężkiego
+                transportu.
+              </p>
+              <ul className="space-y-3 text-sm text-slate-600">
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-blue-600" />
+                  Odpylenie powierzchni
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-blue-600" />
+                  Łatwe mycie i estetyka
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-blue-600" />
+                  Niski koszt materiału
+                </li>
+              </ul>
+              <Button
+                variant="outline"
+                className="w-full mt-4"
+                onClick={scrollToContact}
+              >
+                Wyceń ten system
+              </Button>
+            </CardContent>
+          </Card>
+
+          {/* SYSTEM 2: HEAVY DUTY (Wylewany - Bestseller) */}
+          <Card className="border-blue-600 shadow-xl scale-105 z-10 relative">
+            {/* Badge "Polecany" */}
+            <div className="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+              WYBÓR TOI TOI POLSKA
+            </div>
+
+            <CardHeader className="pb-4">
+              <div className="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                <Layers className="h-6 w-6 text-blue-600" />
+              </div>
+              <CardTitle className="text-xl text-blue-700">
+                System HEAVY DUTY
+              </CardTitle>
+              <p className="text-sm text-slate-500 font-medium">
+                Wylewka Samopoziomująca
+              </p>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="text-3xl font-bold text-slate-900">
+                Ekstremalne{" "}
+                <span className="text-lg font-normal text-slate-500">
+                  obciążenia
+                </span>
+              </div>
+              <p className="text-slate-600 text-sm">
+                Nasz flagowy system na bazie <strong>C-GUARD® EP 304</strong>.
+                Tworzy gładką, pancerną taflę o grubości 2-4mm. Pod wózki
+                widłowe.
+              </p>
+              <ul className="space-y-3 text-sm text-slate-700 font-medium">
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-green-500" />
+                  Pełna odporność na wózki widłowe
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-green-500" />
+                  Efekt "Lustra" (Samopoziom)
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-green-500" />
+                  Żywotność 10+ lat
+                </li>
+              </ul>
+              <Button
+                className="w-full mt-4 bg-blue-600 hover:bg-blue-700"
+                onClick={scrollToContact}
+              >
+                Zapytaj o ten system
+              </Button>
+            </CardContent>
+          </Card>
+
+          {/* SYSTEM 3: SAFETY & DECO (Zasypowy) */}
+          <Card className="border-slate-200 shadow-sm hover:shadow-md transition-all">
+            <CardHeader className="pb-4">
+              <div className="h-12 w-12 bg-slate-100 rounded-lg flex items-center justify-center mb-4">
+                <ShieldAlert className="h-6 w-6 text-slate-600" />
+              </div>
+              <CardTitle className="text-xl">System SAFETY / DECO</CardTitle>
+              <p className="text-sm text-slate-500 font-medium">
+                Zasyp Piaskiem lub Płatkami
+              </p>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="text-3xl font-bold text-slate-900">
+                BHP{" "}
+                <span className="text-lg font-normal text-slate-500">
+                  & Design
+                </span>
+              </div>
+              <p className="text-slate-600 text-sm">
+                Baza EP 304 z dodatkowym zasypem kruszywem kwarcowym
+                (antypoślizg R11-R13) lub płatkami dekoracyjnymi.
+              </p>
+              <ul className="space-y-3 text-sm text-slate-600">
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-blue-600" />
+                  Wysoka antypoślizgowość
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-blue-600" />
+                  Estetyczny wygląd (Płatki)
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-blue-600" />
+                  Maskowanie nierówności
+                </li>
+              </ul>
+              <Button
+                variant="outline"
+                className="w-full mt-4"
+                onClick={scrollToContact}
+              >
+                Wyceń wariant
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* --- 3. SEKCJA O PRODUKCIE (Dane Techniczne C-GUARD) --- */}
       <section
         id="oferta"
         className="py-24 px-6 max-w-7xl mx-auto bg-white text-slate-900"
       >
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* LEWA KOLUMNA: TWARDE DANE (Jawne dla inżyniera) */}
+          {/* LEWA KOLUMNA: Twarde Dane Produktowe */}
           <div>
             <div className="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10 mb-4">
-              Produkt dostępny od ręki
+              Flagowy Produkt Przemysłowy
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              {/* Zmień na prawdziwą nazwę */}
-              Chemcolor Nivelfloor{" "}
-              <span className="text-blue-600">Pro 500</span>
+              System C-GUARD® <span className="text-blue-600">EP 304</span>
             </h2>
             <p className="text-slate-600 mb-8 text-lg">
-              Przemysłowa wylewka samopoziomująca klasy premium. Zaprojektowana
-              pod ekstremalne obciążenia w logistyce i produkcji.
+              Dwuskładnikowa, bezrozpuszczalnikowa powłoka epoksydowa typu
+              "Self-Levelling". Stworzona do ochrony betonu w warunkach
+              ciężkiego obciążenia mechanicznego i chemicznego.
             </p>
 
-            {/* TABELA PARAMETRÓW - TO JEST KLUCZ DLA INŻYNIERA */}
-            {/* Dzięki temu nie musi pobierać PDF, żeby wiedzieć czy towar pasuje */}
+            {/* TABELA PARAMETRÓW (Dane z TDS C-GUARD EP 304) */}
             <div className="grid grid-cols-2 gap-4 mb-8">
               <div className="p-4 bg-slate-50 rounded-xl border border-slate-100">
                 <p className="text-sm text-slate-500 mb-1">
-                  Wytrzymałość (Ściskanie)
+                  Wytrzymałość (Rozciąganie)
                 </p>
-                <p className="text-2xl font-bold text-slate-900"> 50 MPa</p>
+                <p className="text-2xl font-bold text-slate-900">~ 60 MPa</p>
               </div>
               <div className="p-4 bg-slate-50 rounded-xl border border-slate-100">
                 <p className="text-sm text-slate-500 mb-1">
-                  Wytrzymałość (Zginanie)
+                  Twardość (Shore D)
                 </p>
-                <p className="text-2xl font-bold text-slate-900"> 7 MPa</p>
+                <p className="text-2xl font-bold text-slate-900">82 pkt</p>
+              </div>
+              <div className="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                <p className="text-sm text-slate-500 mb-1">
+                  Odporność na ścieranie
+                </p>
+                <p className="text-2xl font-bold text-slate-900">
+                  Klasa AR 0.5
+                </p>
               </div>
               <div className="p-4 bg-slate-50 rounded-xl border border-slate-100">
                 <p className="text-sm text-slate-500 mb-1">Ruch pieszy</p>
                 <p className="text-2xl font-bold text-slate-900">po 24h</p>
-              </div>
-              <div className="p-4 bg-slate-50 rounded-xl border border-slate-100">
-                <p className="text-sm text-slate-500 mb-1">Grubość warstwy</p>
-                <p className="text-2xl font-bold text-slate-900">5 - 30 mm</p>
               </div>
             </div>
 
@@ -394,10 +570,11 @@ export default function Home() {
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-900">
-                    System Bezskurczowy
+                    100% Solvent Free (Bezrozpuszczalnikowy)
                   </h4>
                   <p className="text-sm text-slate-600">
-                    Brak ryzyka spękań przy dużych powierzchniach dylatacyjnych.
+                    Bezpieczny dla aplikacji w zamkniętych halach. Brak skurczu
+                    i ryzyka spękań podczas wiązania.
                   </p>
                 </div>
               </div>
@@ -407,36 +584,24 @@ export default function Home() {
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-900">
-                    Odporność Chemiczna
+                    Norma EN 13813: SR-B2.0-AR0.5-IR23
                   </h4>
                   <p className="text-sm text-slate-600">
-                    Podwyższona odporność na oleje, smary i lekkie kwasy (wg
-                    karty).
-                  </p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="mt-1 bg-blue-100 p-2 rounded-lg h-fit">
-                  <ShieldCheck className="h-5 w-5 text-blue-700" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-slate-900">
-                    Odporność Chemiczna
-                  </h4>
-                  <p className="text-sm text-slate-600">
-                    Podwyższona odporność na oleje, smary i lekkie kwasy (wg
-                    karty).
+                    Pełna certyfikacja UE. Odporność na uderzenia klasy IR23
+                    (bardzo wysoka udarność).
                   </p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* PRAWA KOLUMNA: Lead Magnet (Pakiet Weryfikacyjny) */}
+          {/* PRAWA KOLUMNA: Lead Magnet (Pakiet Weryfikacyjny) - BEZ ZMIAN KODU, ZMIANA KONTEKSTU */}
           <div className="space-y-8">
-            {/* Grid Zastosowań (Bez zmian) */}
+            {/* Grid Zastosowań - Zaktualizowany do EP 304 */}
             <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100">
-              <h3 className="font-bold text-xl mb-6">Główne zastosowania</h3>
+              <h3 className="font-bold text-xl mb-6">
+                Główne zastosowania EP 304
+              </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="flex items-center gap-3 bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
                   <Warehouse className="h-5 w-5 text-blue-600" />
@@ -444,26 +609,23 @@ export default function Home() {
                 </div>
                 <div className="flex items-center gap-3 bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
                   <Factory className="h-5 w-5 text-blue-600" />
-                  <span className="font-medium text-sm">Przemysł Ciężki</span>
+                  <span className="font-medium text-sm">
+                    Zakłady Produkcyjne
+                  </span>
                 </div>
                 <div className="flex items-center gap-3 bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
                   <Truck className="h-5 w-5 text-blue-600" />
-                  <span className="font-medium text-sm">
-                    Parkingi Podziemne
-                  </span>
+                  <span className="font-medium text-sm">Garaże i Parkingi</span>
                 </div>
                 <div className="flex items-center gap-3 bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
                   <Building2 className="h-5 w-5 text-blue-600" />
-                  <span className="font-medium text-sm">
-                    Centra Logistyczne
-                  </span>
+                  <span className="font-medium text-sm">Showroomy</span>
                 </div>
               </div>
             </div>
 
-            {/* Karta "Pakiet Inwestora" (GATED CONTENT) */}
+            {/* Karta "Pakiet Inwestora" (Zostawiamy tak jak ustaliliśmy wcześniej) */}
             <div className="bg-blue-600 rounded-2xl p-8 text-white shadow-xl shadow-blue-900/20 relative overflow-hidden">
-              {/* Ozdobne tło */}
               <div className="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
 
               <div className="flex flex-col gap-6 relative z-10">
@@ -473,15 +635,15 @@ export default function Home() {
                   </div>
                   <div>
                     <h4 className="font-bold text-xl mb-1">
-                      Pakiet Weryfikacyjny
+                      Dokumentacja Systemowa
                     </h4>
                     <p className="text-blue-100 text-sm leading-relaxed">
-                      Nie kupuj kota w worku. Zamów komplet dokumentów:
+                      Pobierz komplet dokumentów dla C-GUARD® EP 304:
                     </p>
                     <ul className="mt-3 space-y-2 text-sm text-blue-50">
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="h-4 w-4 text-green-300" />
-                        Pełna Karta Techniczna (PDF)
+                        Karta Techniczna (TDS) + MSDS
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="h-4 w-4 text-green-300" />
@@ -489,7 +651,7 @@ export default function Home() {
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="h-4 w-4 text-green-300" />
-                        Certyfikaty CE i Atesty
+                        Certyfikaty CE / Deklaracja zgodności
                       </li>
                     </ul>
                   </div>
@@ -500,11 +662,11 @@ export default function Home() {
                     onClick={scrollToContact}
                     className="w-full bg-white text-blue-600 hover:bg-blue-50 border-none font-semibold text-base py-6"
                   >
-                    Odbierz Pakiet na E-mail
+                    Prześlij pakiet dokumentów
                   </Button>
                 </div>
                 <p className="text-[10px] text-blue-200 text-center sm:text-left opacity-80">
-                  Dostępne natychmiastowo po wypełnieniu formularza.
+                  Wysyłamy automatycznie w 30 sekund na podany e-mail.
                 </p>
               </div>
             </div>
