@@ -645,9 +645,14 @@ export default function Home() {
                         <CheckCircle2 className="h-4 w-4 text-green-300" />
                         Karta Techniczna (TDS) + MSDS
                       </li>
-                      <li className="flex items-center gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-green-300" />
-                        Case Study: Toi Toi Polska
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-green-300 mt-0.5 shrink-0" />
+                        <span>
+                          Case Study Toi Toi:{" "}
+                          <span className="text-white font-medium opacity-90">
+                            Wariant z płatkami dekoracyjnymi
+                          </span>
+                        </span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="h-4 w-4 text-green-300" />
@@ -875,28 +880,28 @@ export default function Home() {
               <ul className="space-y-4">
                 <li>
                   <a
-                    href="tel:+48000000000"
+                    href="tel:+48724537326"
                     className="flex items-center gap-3 text-slate-600 hover:text-blue-600 transition-colors"
                   >
                     <Phone className="h-5 w-5 text-blue-600" />
-                    <span>+48 [Twój Numer]</span>
+                    <span>+48 724 537 326</span>
                   </a>
                 </li>
                 <li>
                   <a
-                    href="mailto:kontakt@twojafirma.pl"
+                    href="mailto:bartoszrezmer20@gmail.com"
                     className="flex items-center gap-3 text-slate-600 hover:text-blue-600 transition-colors"
                   >
                     <Mail className="h-5 w-5 text-blue-600" />
-                    <span>kontakt@[twojadomena].pl</span>
+                    <span>bartoszrezmer20@gmail.com</span>
                   </a>
                 </li>
                 <li className="flex items-start gap-3 text-slate-600">
                   <MapPin className="h-5 w-5 text-blue-600 shrink-0" />
                   <span>
-                    [Twoja Ulica i Numer]
+                    Lubawska 3/74
                     <br />
-                    [Kod pocztowy] [Miasto]
+                    81-066 Gdynia
                   </span>
                 </li>
               </ul>
@@ -907,18 +912,11 @@ export default function Home() {
               <h4 className="font-bold text-slate-900 mb-6">Dane firmy</h4>
               <ul className="space-y-4 text-sm text-slate-500">
                 <li className="font-medium text-slate-900">
-                  [PEŁNA NAZWA TWOJEJ JDG]
+                  Brezit Bartosz Rezmer
                 </li>
                 <li className="flex items-center gap-2">
                   <FileText className="h-4 w-4" />
-                  NIP: [Twój NIP]
-                </li>
-                {/* Opcjonalnie REGON lub KRS jeśli masz */}
-                {/* <li>REGON: 000000000</li> */}
-                <li className="mt-4">
-                  Bank: [Nazwa Banku]
-                  <br />
-                  Nr konta: [XX XXXX XXXX ...]
+                  NIP: 9581755519
                 </li>
               </ul>
             </div>
@@ -927,7 +925,7 @@ export default function Home() {
           {/* Pasek Dolny: Copyright i Linki Prawne */}
           <div className="pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
             <p>
-              &copy; {new Date().getFullYear()} [Twoja Nazwa Firmy]. Wszelkie
+              &copy; {new Date().getFullYear()} Brezit Bartosz Rezmer. Wszelkie
               prawa zastrzeżone.
             </p>
             <div className="flex gap-6">
@@ -937,7 +935,10 @@ export default function Home() {
               >
                 Polityka Prywatności
               </Link>
-              <Link href="#" className="hover:text-slate-900 transition-colors">
+              <Link
+                href="/regulamin"
+                className="hover:text-slate-900 transition-colors"
+              >
                 Regulamin
               </Link>
             </div>
