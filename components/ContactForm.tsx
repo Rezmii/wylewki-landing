@@ -6,7 +6,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
-import { Send, Loader2 } from "lucide-react"; // Upewnij się, że masz te ikony
+import { Send, Loader2, FileText, Lock } from "lucide-react";
+import { sendLeadMagnet } from "@/app/actions";
 
 export function ContactForm() {
   const [isLoading, setIsLoading] = useState(false);
@@ -17,48 +18,97 @@ export function ContactForm() {
     setIsLoading(true);
 
     const formData = new FormData(event.currentTarget);
-    const data = Object.fromEntries(formData);
+    const data = {
+      name: formData.get("name") as string,
+      company: formData.get("company") as string,
+      email: formData.get("email") as string,
+      phone: formData.get("phone") as string,
+      area: formData.get("area") as string,
+      message: formData.get("message") as string,
+    };
 
-    // PAMIĘTAJ ABY PODMIENIĆ ID FORMSPREE NA SWOJE!
-    try {
-      const response = await fetch("https://formspree.io/f/xldzngey", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      });
+    const result = await sendLeadMagnet(data);
 
-      if (response.ok) {
-        setIsSuccess(true);
-      } else {
-        alert("Wystąpił błąd techniczny. Prosimy o kontakt telefoniczny.");
-      }
-    } catch (error) {
-      alert("Wystąpił błąd połączenia.");
-    } finally {
-      setIsLoading(false);
+    if (result.success) {
+      setIsSuccess(true);
+    } else {
+      alert("Wystąpił błąd podczas wysyłania. Spróbuj ponownie.");
     }
+
+    setIsLoading(false);
   }
 
   if (isSuccess) {
     return (
-      <Card className="bg-green-50 border-green-200 shadow-lg">
-        <CardContent className="flex flex-col items-center justify-center p-12 text-center">
-          <div className="h-16 w-16 rounded-full bg-green-100 flex items-center justify-center mb-6">
-            <Send className="h-8 w-8 text-green-600" />
+      <Card className="bg-white border-blue-100 shadow-xl shadow-blue-900/5 animate-in fade-in zoom-in duration-300 relative overflow-hidden">
+        {/* Dekoracyjne tło (subtelne) */}
+        <div className="absolute top-0 right-0 -mt-8 -mr-8 w-32 h-32 bg-blue-50 rounded-full blur-2xl opacity-50"></div>
+
+        <CardContent className="flex flex-col items-center justify-center p-8 text-center relative z-10">
+          {/* IKONA SUKCESU - Brandowa */}
+          <div className="h-16 w-16 rounded-full bg-blue-50 flex items-center justify-center mb-5 ring-1 ring-blue-100">
+            <Send className="h-7 w-7 text-blue-600" />
           </div>
-          <h3 className="text-2xl font-bold text-green-900 mb-2">
-            Wiadomość wysłana!
+
+          <h3 className="text-2xl font-bold text-slate-900 mb-2">
+            Zgłoszenie przyjęte
           </h3>
-          <p className="text-green-700 max-w-md">
-            Dziękujemy za kontakt. Przygotujemy wstępną wycenę i odezwiemy się
-            do Ciebie w ciągu 24 godzin (w dni robocze).
+          <p className="text-slate-600 mb-8 max-w-md text-sm leading-relaxed">
+            Pakiet Premium (Case Study + Certyfikaty) został wysłany na Twój
+            adres e-mail.
+            <br />
+            <span className="text-xs text-slate-400 mt-1 block">
+              (Jeśli nie widzisz wiadomości, sprawdź folder SPAM).
+            </span>
           </p>
+
+          {/* SEKCJA POBIERANIA */}
+          <div className="bg-slate-50 p-5 rounded-xl border border-slate-200 w-full shadow-inner mb-6">
+            <p className="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wider text-left flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></span>
+              Dostępne do pobrania teraz:
+            </p>
+
+            {/* Plik 1: TDS (Dostępny) */}
+            <a
+              href="/dokumenty/chemcolor-c-guard-ep304-tds.pdf"
+              target="_blank"
+              download
+              className="flex items-center gap-3 p-3 rounded-lg border border-white bg-white shadow-sm hover:border-blue-400 hover:shadow-md transition-all group text-left mb-3"
+            >
+              <div className="bg-blue-50 p-2 rounded group-hover:bg-blue-600 transition-colors">
+                <FileText className="w-5 h-5 text-blue-600 group-hover:text-white transition-colors" />
+              </div>
+              <div>
+                <p className="font-semibold text-slate-900 text-sm group-hover:text-blue-700 transition-colors">
+                  Karta Techniczna (TDS)
+                </p>
+                <p className="text-[10px] text-slate-500">
+                  PDF • 2.4 MB • Pobierz teraz
+                </p>
+              </div>
+            </a>
+
+            {/* Plik 2: Case Study (Wysłane) */}
+            <div className="mt-3 flex items-center gap-3 p-3 rounded-lg border border-slate-200 bg-slate-100/50 text-left">
+              <div className="bg-slate-200 p-2 rounded">
+                <Lock className="w-5 h-5 text-slate-400" />
+              </div>
+              <div>
+                <p className="font-medium text-slate-500 text-sm">
+                  Pakiet Premium (Case Study + ISO + Linki)
+                </p>
+                <p className="text-[10px] text-green-600 font-bold flex items-center gap-1">
+                  ✓ Wysłano na e-mail
+                </p>
+              </div>
+            </div>
+          </div>
+
           <Button
-            className="mt-8 border-green-600 text-green-700 hover:bg-green-100"
-            variant="outline"
+            className="text-slate-500 hover:text-blue-600 hover:bg-blue-50"
+            variant="ghost"
+            size="sm"
             onClick={() => setIsSuccess(false)}
           >
             Wyślij kolejne zapytanie
@@ -160,7 +210,7 @@ export function ContactForm() {
 
       <Button
         type="submit"
-        className="w-full bg-blue-600 hover:bg-blue-700 text-lg py-6 font-semibold shadow-lg shadow-blue-900/20 transition-all hover:scale-[1.01]"
+        className="w-full bg-blue-600 hover:bg-blue-700 text-lg py-6 font-semibold shadow-lg shadow-blue-900/20"
         disabled={isLoading}
       >
         {isLoading ? (
@@ -168,7 +218,7 @@ export function ContactForm() {
             <Loader2 className="mr-2 h-5 w-5 animate-spin" /> Wysyłanie...
           </>
         ) : (
-          "Poproś o bezpłatną wycenę"
+          "Odbierz Pakiet i Wycenę"
         )}
       </Button>
 
