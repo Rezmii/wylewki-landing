@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -34,15 +35,75 @@ import {
   PackageOpen, // Do "Małych partii / Elastyczności"
   Globe2, // Do "Made in EU"
 } from "lucide-react";
+import { IntentType } from "@/app/actions";
+
+const sectionContent = {
+  quote: {
+    title: "Zacznijmy współpracę",
+    description:
+      "Wypełnij formularz poniżej. To nic nie kosztuje, a otrzymasz konkretną ofertę dopasowaną do Twojej inwestycji w mniej niż 24 godziny.",
+    steps: [
+      {
+        title: "1. Analiza",
+        desc: "Analizujemy Twoje zapotrzebowanie i metraż.",
+      },
+      {
+        title: "2. Wycena",
+        desc: "Przygotowujemy ofertę",
+      },
+      { title: "3. Dostawa", desc: "Organizujemy transport prosto na budowę." },
+    ],
+  },
+  documents: {
+    title: "Pobierz dokumentację techniczną",
+    description:
+      "Zostaw swój e-mail, aby otrzymać natychmiastowy dostęp do Pakietu Weryfikacyjnego (Case Study Toi Toi + Certyfikaty ISO + Karty Techniczne).",
+    steps: [
+      {
+        title: "1. Wypełnij",
+        desc: "Podaj adres e-mail, na który mamy wysłać pliki.",
+      },
+      {
+        title: "2. Odbierz",
+        desc: "Automat wyśle Pakiet Premium w ciągu 30 sekund.",
+      },
+      {
+        title: "3. Weryfikuj",
+        desc: "Przedstaw dokumenty inwestorowi lub inspektorowi.",
+      },
+    ],
+  },
+  collab: {
+    title: "Zrealizujmy Twój projekt",
+    description:
+      "Interesuje Cię podobne rozwiązanie jak w Toi Toi Polska? Opisz swoją inwestycję. Pomożemy Ci dobrać technologię i przygotujemy ofertę logistyczną.",
+    steps: [
+      { title: "1. Zgłoszenie", desc: "Opisz krótko specyfikę obiektu." },
+      {
+        title: "2. Konsultacja",
+        desc: "Dobierzemy system pod Twoje obciążenia.",
+      },
+      {
+        title: "3. Realizacja",
+        desc: "Dostawa materiału bezpośrednio na budowę.",
+      },
+    ],
+  },
+};
 
 export default function Home() {
+  const [formIntent, setFormIntent] = useState<IntentType>("quote");
+
   // Funkcja do płynnego przewijania do formularza
-  const scrollToContact = () => {
+  const scrollToContact = (intent: IntentType = "quote") => {
+    setFormIntent(intent); // Ustawiamy intencję
     const contactSection = document.getElementById("contact");
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const activeContent = sectionContent[formIntent];
 
   const scrollToOffer = () => {
     const offerSection = document.getElementById("oferta");
@@ -102,7 +163,7 @@ export default function Home() {
 
             {/* CTA Button */}
             <Button
-              onClick={scrollToContact}
+              onClick={() => scrollToContact("quote")}
               size="sm"
               className="bg-blue-600 hover:bg-blue-700 font-semibold shadow-md shadow-blue-900/10"
             >
@@ -142,7 +203,7 @@ export default function Home() {
                 <Button
                   size="lg"
                   className="bg-blue-600 hover:bg-blue-700 h-12 px-8 text-base"
-                  onClick={scrollToContact}
+                  onClick={() => scrollToContact("quote")}
                 >
                   Zapytaj o Ofertę
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -342,10 +403,10 @@ export default function Home() {
           </div>
           <Button
             variant="outline"
-            onClick={scrollToContact}
+            onClick={() => scrollToContact("quote")}
             className="whitespace-nowrap"
           >
-            Sprawdź ile zaoszczędzisz
+            Zapytaj o ofertę hurtową
           </Button>
         </div>
       </section>
@@ -407,7 +468,7 @@ export default function Home() {
               <Button
                 variant="outline"
                 className="w-full mt-4"
-                onClick={scrollToContact}
+                onClick={() => scrollToContact("quote")}
               >
                 Wyceń ten system
               </Button>
@@ -460,7 +521,7 @@ export default function Home() {
               </ul>
               <Button
                 className="w-full mt-4 bg-blue-600 hover:bg-blue-700"
-                onClick={scrollToContact}
+                onClick={() => scrollToContact("quote")}
               >
                 Zapytaj o ten system
               </Button>
@@ -506,7 +567,7 @@ export default function Home() {
               <Button
                 variant="outline"
                 className="w-full mt-4"
-                onClick={scrollToContact}
+                onClick={() => scrollToContact("quote")}
               >
                 Wyceń wariant
               </Button>
@@ -664,7 +725,7 @@ export default function Home() {
 
                 <div className="flex flex-col sm:flex-row gap-3 pt-2">
                   <Button
-                    onClick={scrollToContact}
+                    onClick={() => scrollToContact("documents")}
                     className="w-full bg-white text-blue-600 hover:bg-blue-50 border-none font-semibold text-base py-6"
                   >
                     Prześlij pakiet dokumentów
@@ -787,7 +848,7 @@ export default function Home() {
                   Chcesz podobnych efektów?
                 </p>
                 <Button
-                  onClick={scrollToContact}
+                  onClick={() => scrollToContact("collab")}
                   className="w-full bg-white text-slate-900 hover:bg-slate-100 font-semibold"
                 >
                   Zapytaj o współpracę <ArrowUpRight className="ml-2 h-4 w-4" />
@@ -811,42 +872,31 @@ export default function Home() {
 
         <div className="max-w-4xl mx-auto relative z-10">
           {/* Nagłówek sekcji */}
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-in fade-in duration-500 key={formIntent}">
+            {/* key={formIntent} wymusza lekką animację przy zmianie tematu */}
             <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
-              Zacznijmy współpracę
+              {activeContent.title}
             </h2>
             <p className="text-slate-300 text-lg max-w-2xl mx-auto">
-              Wypełnij formularz poniżej. To nic nie kosztuje, a otrzymasz
-              konkretną ofertę dopasowaną do Twojej inwestycji w mniej niż 24
-              godziny.
+              {activeContent.description}
             </p>
           </div>
 
           {/* Kontener formularza */}
-          <div className="text-slate-900">
-            <ContactForm />
+          <div className="max-w-4xl mx-auto relative z-10">
+            <ContactForm intent={formIntent} />
           </div>
 
           {/* Dodatkowe info pod formularzem */}
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-center text-slate-400 text-sm border-t border-slate-800 pt-8">
-            <div>
-              <strong className="text-white block mb-1 text-base">
-                1. Analiza
-              </strong>
-              Analizujemy Twoje zapotrzebowanie i metraż.
-            </div>
-            <div>
-              <strong className="text-white block mb-1 text-base">
-                2. Wycena
-              </strong>
-              Przygotowujemy ofertę z uwzględnieniem rabatów.
-            </div>
-            <div>
-              <strong className="text-white block mb-1 text-base">
-                3. Dostawa
-              </strong>
-              Organizujemy transport prosto na budowę.
-            </div>
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-center text-slate-400 text-sm border-t border-slate-800 pt-8 animate-in fade-in slide-in-from-bottom-4 duration-500 key={formIntent + 'steps'}">
+            {activeContent.steps.map((step, index) => (
+              <div key={index}>
+                <strong className="text-white block mb-1 text-base">
+                  {step.title}
+                </strong>
+                {step.desc}
+              </div>
+            ))}
           </div>
         </div>
       </section>

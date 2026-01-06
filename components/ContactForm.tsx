@@ -7,11 +7,28 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { Send, Loader2, FileText, Lock } from "lucide-react";
-import { sendLeadMagnet } from "@/app/actions";
+import { sendLeadMagnet, IntentType } from "@/app/actions";
 
-export function ContactForm() {
+const formConfig = {
+  quote: {
+    title: "Darmowa wycena Twojej inwestycji",
+    buttonText: "Poproszę o wycenę",
+  },
+  documents: {
+    title: "Gdzie wysłać komplet dokumentacji?",
+    buttonText: "Wyślij mi dokumenty",
+  },
+  collab: {
+    title: "Porozmawiajmy o Twoim projekcie",
+    buttonText: "Wyślij zapytanie",
+  },
+};
+
+export function ContactForm({ intent = "quote" }: { intent?: IntentType }) {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+
+  const config = formConfig[intent];
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -25,6 +42,7 @@ export function ContactForm() {
       phone: formData.get("phone") as string,
       area: formData.get("area") as string,
       message: formData.get("message") as string,
+      intent: intent,
     };
 
     const result = await sendLeadMagnet(data);
@@ -119,115 +137,104 @@ export function ContactForm() {
   }
 
   return (
-    <form
-      onSubmit={onSubmit}
-      className="bg-white p-8 rounded-2xl shadow-xl border border-slate-100"
-    >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div className="space-y-2">
-          <Label htmlFor="name" className="text-slate-700 font-medium">
-            Imię i Nazwisko
-          </Label>
-          <Input
-            id="name"
-            name="name"
-            placeholder="Jan Kowalski"
-            required
-            className="bg-slate-50 border-slate-200"
-          />
+    <div className="bg-white p-8 rounded-2xl shadow-xl border border-slate-100">
+      <form onSubmit={onSubmit}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div className="space-y-2">
+            <Label htmlFor="name" className="text-slate-700 font-medium">
+              Imię i Nazwisko
+            </Label>
+            <Input
+              id="name"
+              name="name"
+              required
+              className="bg-slate-50 border-slate-200"
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="company" className="text-slate-700 font-medium">
+              Nazwa Firmy
+            </Label>
+            <Input
+              id="company"
+              name="company"
+              required
+              className="bg-slate-50 border-slate-200"
+            />
+          </div>
         </div>
-        <div className="space-y-2">
-          <Label htmlFor="company" className="text-slate-700 font-medium">
-            Nazwa Firmy
-          </Label>
-          <Input
-            id="company"
-            name="company"
-            placeholder="Nazwa Twojej Firmy"
-            required
-            className="bg-slate-50 border-slate-200"
-          />
-        </div>
-      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div className="space-y-2">
-          <Label htmlFor="email" className="text-slate-700 font-medium">
-            E-mail firmowy
-          </Label>
-          <Input
-            id="email"
-            name="email"
-            type="email"
-            placeholder="biuro@firma.pl"
-            required
-            className="bg-slate-50 border-slate-200"
-          />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div className="space-y-2">
+            <Label htmlFor="email" className="text-slate-700 font-medium">
+              E-mail firmowy
+            </Label>
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              required
+              className="bg-slate-50 border-slate-200"
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="phone" className="text-slate-700 font-medium">
+              Telefon
+            </Label>
+            <Input
+              id="phone"
+              name="phone"
+              type="tel"
+              required
+              className="bg-slate-50 border-slate-200"
+            />
+          </div>
         </div>
-        <div className="space-y-2">
-          <Label htmlFor="phone" className="text-slate-700 font-medium">
-            Telefon kontaktowy
-          </Label>
-          <Input
-            id="phone"
-            name="phone"
-            type="tel"
-            placeholder="+48..."
-            required
-            className="bg-slate-50 border-slate-200"
-          />
-        </div>
-      </div>
 
-      <div className="space-y-2 mb-6">
-        <Label htmlFor="area" className="text-slate-700 font-medium">
-          Szacowana powierzchnia inwestycji (m²)
-        </Label>
-        <Input
-          id="area"
-          name="area"
-          type="number"
-          placeholder="np. 500, 2000, 5000"
-          required
-          className="bg-slate-50 border-slate-200 text-lg"
-        />
-        <p className="text-xs text-slate-500">
-          Pozwoli nam to dobrać odpowiednie warunki rabatowe.
+        <div className="space-y-2 mb-6">
+          <Label htmlFor="area" className="text-slate-700 font-medium">
+            Szacowana powierzchnia (m²)
+          </Label>
+          <Input
+            id="area"
+            name="area"
+            type="number"
+            placeholder="np. 500"
+            className="bg-slate-50 border-slate-200"
+          />
+        </div>
+
+        <div className="space-y-2 mb-8">
+          <Label htmlFor="message" className="text-slate-700 font-medium">
+            Wiadomość (Opcjonalne)
+          </Label>
+          <Textarea
+            id="message"
+            name="message"
+            className="bg-slate-50 border-slate-200 min-h-[100px]"
+          />
+        </div>
+
+        {/* DYNAMICZNY PRZYCISK */}
+        <Button
+          type="submit"
+          className="w-full bg-blue-600 hover:bg-blue-700 text-lg py-6 font-semibold shadow-lg shadow-blue-900/20"
+          disabled={isLoading}
+        >
+          {isLoading ? (
+            <>
+              <Loader2 className="mr-2 h-5 w-5 animate-spin" /> Wysyłanie...
+            </>
+          ) : (
+            config.buttonText
+          )}
+        </Button>
+
+        <p className="text-[10px] text-slate-400 mt-6 text-center leading-tight max-w-lg mx-auto">
+          Administratorem Twoich danych osobowych jest Brezit Bartosz Rezmer.
+          Przesyłając formularz, akceptujesz Politykę Prywatności.
         </p>
-      </div>
-
-      <div className="space-y-2 mb-8">
-        <Label htmlFor="message" className="text-slate-700 font-medium">
-          Dodatkowe informacje (opcjonalne)
-        </Label>
-        <Textarea
-          id="message"
-          name="message"
-          className="bg-slate-50 border-slate-200 min-h-[120px]"
-          placeholder="Opisz krótko inwestycję: rodzaj obiektu, termin realizacji, lokalizacja..."
-        />
-      </div>
-
-      <Button
-        type="submit"
-        className="w-full bg-blue-600 hover:bg-blue-700 text-lg py-6 font-semibold shadow-lg shadow-blue-900/20"
-        disabled={isLoading}
-      >
-        {isLoading ? (
-          <>
-            <Loader2 className="mr-2 h-5 w-5 animate-spin" /> Wysyłanie...
-          </>
-        ) : (
-          "Odbierz Pakiet i Wycenę"
-        )}
-      </Button>
-
-      {/* Klauzula RODO - Bardzo ważna w Polsce */}
-      <p className="text-[10px] text-slate-400 mt-6 text-center leading-tight max-w-lg mx-auto">
-        Administratorem Twoich danych osobowych jest [TWOJA NAZWA FIRMY]. Dane
-        będą przetwarzane wyłącznie w celu przygotowania oferty i realizacji
-        zamówienia. Nie udostępniamy danych osobom trzecim bez Twojej zgody.
-      </p>
-    </form>
+      </form>
+    </div>
   );
 }
