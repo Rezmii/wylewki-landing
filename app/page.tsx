@@ -241,7 +241,7 @@ export default function Home() {
               <div className="absolute -top-4 -right-4 w-full h-full bg-blue-100 rounded-2xl -z-10"></div>
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-100 aspect-[4/3]">
                 <Image
-                  src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2069&auto=format&fit=crop"
+                  src="https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=2048&auto=format&fit=crop"
                   alt="Posadzka przemysłowa C-GUARD Epoxy"
                   fill
                   className="object-cover"
