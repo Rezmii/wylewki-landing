@@ -64,12 +64,12 @@ export async function sendLeadMagnet(data: LeadData) {
             <p style="margin-top: 0; font-weight: bold;">Do pobrania:</p>
             <ul style="padding-left: 20px;">
                <li style="margin-bottom: 10px;">
-                 <a href="https://TWOJA-DOMENA.pl/dokumenty/case-study-toi-toi-polska.pdf" style="color: #2563eb; font-weight: bold; text-decoration: none;">
+                 <a href="https://wylewki-przemyslowe.pl/dokumenty/case-study-toi-toi-polska.pdf" style="color: #2563eb; font-weight: bold; text-decoration: none;">
                    📥 Case Study: Wdrożenie w Toi Toi Polska (Wariant z Płatkami)
                  </a>
                </li>
                <li style="margin-bottom: 10px;">
-                 <a href="https://TWOJA-DOMENA.pl/dokumenty/chemcolor-c-guard-ep304-tds.pdf" style="color: #2563eb; font-weight: bold; text-decoration: none;">
+                 <a href="https://wylewki-przemyslowe.pl/dokumenty/chemcolor-c-guard-ep304-tds.pdf" style="color: #2563eb; font-weight: bold; text-decoration: none;">
                    📥 Karta Techniczna (TDS) - EP 304
                  </a>
                </li>
@@ -79,10 +79,10 @@ export async function sendLeadMagnet(data: LeadData) {
          <div style="margin-bottom: 30px;">
             <p style="font-weight: bold; font-size: 14px; margin-bottom: 10px;">Certyfikacja Fabryki (ISO):</p>
             <p style="font-size: 13px; margin: 0;">
-              <a href="https://TWOJA-DOMENA.pl/dokumenty/iso-9001-chemcolor.jpg" style="color: #475569; text-decoration: underline; margin-right: 15px;">
+              <a href="https://wylewki-przemyslowe.pl/dokumenty/iso-9001-chemcolor.jpg" style="color: #475569; text-decoration: underline; margin-right: 15px;">
                 📄 Zobacz Certyfikat ISO 9001 (Jakość)
               </a>
-              <a href="https://TWOJA-DOMENA.pl/dokumenty/iso-14001-chemcolor.jpg" style="color: #475569; text-decoration: underline;">
+              <a href="https://wylewki-przemyslowe.pl/dokumenty/iso-14001-chemcolor.jpg" style="color: #475569; text-decoration: underline;">
                 📄 Zobacz Certyfikat ISO 14001 (Eko)
               </a>
             </p>
