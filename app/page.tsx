@@ -939,11 +939,11 @@ export default function Home() {
                 </li>
                 <li>
                   <a
-                    href="mailto:bartoszrezmer20@gmail.com"
+                    href="mailto:biuro@wylewki-przemyslowe.pl"
                     className="flex items-center gap-3 text-slate-600 hover:text-blue-600 transition-colors"
                   >
                     <Mail className="h-5 w-5 text-blue-600" />
-                    <span>bartoszrezmer20@gmail.com</span>
+                    <span>biuro@wylewki-przemyslowe.pl</span>
                   </a>
                 </li>
                 <li className="flex items-start gap-3 text-slate-600">
