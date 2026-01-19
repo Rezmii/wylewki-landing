@@ -248,7 +248,7 @@ export default function Home() {
                   priority
                 />
 
-                {/* Pływający element "Trust Box" */}
+                {/* Pływający element "Trust Box"
                 <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur p-4 rounded-lg shadow-lg border border-slate-100 max-w-[200px]">
                   <p className="text-xs text-slate-500 uppercase font-bold mb-1">
                     Wdrożono u lidera
@@ -264,7 +264,7 @@ export default function Home() {
                       ></div>
                     ))}
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
