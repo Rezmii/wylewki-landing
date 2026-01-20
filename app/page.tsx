@@ -799,9 +799,9 @@ export default function Home() {
                     Nasze rozwiązanie
                   </h4>
                   <p className="text-slate-100 leading-relaxed">
-                    Bezpośrednia dostawa wylewek przemysłowych z fabryki
-                    Chemcolor Sevnica. Zapewnienie ciągłości dostaw i
-                    optymalizacja kosztów zakupu materiału dla inwestora.
+                    Realizacja zamówień w modelu bezpośrednim z fabryki
+                    Chemcolor Sevnica. Terminowe dostarczenie sytemu
+                    posadzkowego zgodnego z wymogami technicznymi.
                   </p>
                 </div>
               </div>
