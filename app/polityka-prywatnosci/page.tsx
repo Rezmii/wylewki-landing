@@ -135,7 +135,7 @@ export default function PrivacyPolicy() {
             </h2>
             <p>
               W sprawach RODO prosimy o kontakt pod adresem:{" "}
-              <strong>bartoszrezmer20@gmail.com</strong>.
+              <strong>biuro@wylewki-przemyslowe.pl</strong>.
             </p>
           </section>
         </div>
