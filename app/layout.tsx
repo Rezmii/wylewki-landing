@@ -34,6 +34,15 @@ export default function RootLayout({
         type="text/javascript"
         src="https://cdn-cookieyes.com/client_data/334e6eb2f5c8c20393c68f3926fbb9bd/script.js"
       />
+      <Script id="microsoft-clarity" type="text/javascript">
+        {`
+           (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "vaprsj17dj");
+          `}
+      </Script>
       <body className={inter.className}>
         {children}
         <GoogleAnalytics gaId="G-N1QTBL5HCW" />
