@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,6 +27,11 @@ export default function RootLayout({
   return (
     <html lang="pl" className="scroll-smooth">
       {/* Dodajemy scroll-smooth tutaj! */}
+      <Script
+        id="cookieyes"
+        type="text/javascript"
+        src="https://cdn-cookieyes.com/client_data/334e6eb2f5c8c20393c68f3926fbb9bd/script.js"
+      />
       <body className={inter.className}>{children}</body>
     </html>
   );
