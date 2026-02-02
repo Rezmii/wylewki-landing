@@ -124,7 +124,7 @@ export default function Home() {
           >
             {/* Opcjonalnie ikonka: <Layers className="h-6 w-6 text-blue-600" /> */}
             <div className="font-bold text-xl tracking-tight text-slate-900">
-              WYLEWKI<span className="text-blue-600">EU</span>
+              WYLEWKI-<span className="text-blue-600">PRZEMYSŁOWE.PL</span>
             </div>
           </div>
 
@@ -203,9 +203,14 @@ export default function Home() {
                 <Button
                   size="lg"
                   className="bg-blue-600 hover:bg-blue-700 h-12 px-8 text-base"
-                  onClick={() => scrollToContact("quote")}
+                  onClick={() => {
+                    const systemsSection = document.getElementById("systems");
+                    if (systemsSection) {
+                      systemsSection.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
                 >
-                  Zapytaj o Ofertę
+                  Wybierz System
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
                 <Button
@@ -306,7 +311,7 @@ export default function Home() {
             </span>
           </h3>
           <p className="text-lg text-slate-600">
-            Jako wyłączny partner na ten segment, łączymy zwinność polskiej
+            Jako autoryzowany partner na ten segment, łączymy zwinność polskiej
             obsługi z potężnym zapleczem technologicznym fabryki{" "}
             <strong>Chemcolor Sevnica</strong>.
           </p>
@@ -325,8 +330,8 @@ export default function Home() {
             <CardContent className="space-y-4">
               <p className="text-slate-600 text-sm leading-relaxed">
                 Chemcolor to firma rodzinna z tradycjami, gdzie wiedza
-                przechodzi z pokolenia na pokolenie. To nie jest "startup". To
-                dekady udoskonalania receptur epoksydowych i poliuretanowych.
+                przechodzi z pokolenia na pokolenie. To dekady udoskonalania
+                receptur epoksydowych i poliuretanowych.
               </p>
               <div className="h-px bg-slate-100 w-full my-2"></div>
               <div className="flex items-center gap-2 text-slate-900 font-medium text-sm">
@@ -339,7 +344,7 @@ export default function Home() {
           {/* Karta 2: JAKOŚĆ (ISO) - TO JEST KLUCZ B2B */}
           <Card className="border-slate-200 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
             {/* Ozdobny pasek */}
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-green-500"></div>
+            <div className="absolute top-0 left-0 w-full h-1 bg-blue-500"></div>
             <CardHeader>
               <div className="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                 <Award className="h-6 w-6 text-blue-600" />
@@ -369,14 +374,14 @@ export default function Home() {
                 <PackageOpen className="h-6 w-6 text-blue-600" />
               </div>
               <CardTitle className="text-xl">
-                Elastyczność ("Small Batch")
+                Elastyczność i skalowalność
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-slate-600 text-sm leading-relaxed">
-                Wielkie korporacje wymagają zamówień na tony. My rozumiemy
-                realia. Dzięki elastycznej linii produkcyjnej realizujemy
-                zamówienia już od 25 kg (jedno wiadro).
+                Rozumiemy dynamikę projektów. Nie wymuszamy zamówień
+                całopojazdowych na start. Obsługujemy zamówienia testowe oraz
+                uzupełniające, dopasowując logistykę do tempa Twojej inwestycji.
               </p>
               <div className="h-px bg-slate-100 w-full my-2"></div>
               <div className="flex items-center gap-2 text-slate-900 font-medium text-sm">
@@ -394,10 +399,12 @@ export default function Home() {
               <TrendingDown className="h-6 w-6 text-green-600" />
             </div>
             <div>
-              <h4 className="font-bold text-slate-900">Direct-to-Site Model</h4>
+              <h4 className="font-bold text-slate-900">
+                Model Bezpośredni (Direct)
+              </h4>
               <p className="text-sm text-slate-600">
-                Towar jedzie prosto z Słowenii na Twoją budowę. Omijasz marże
-                hurtowni i koszty magazynowania.
+                Towar jedzie prosto z Słowenii na Twoją budowę, eliminując
+                zbędne przeładunki i koszty magazynowania.
               </p>
             </div>
           </div>
@@ -412,7 +419,7 @@ export default function Home() {
       </section>
 
       {/* --- SEKCJA PAKIETY SYSTEMOWE (Nowość) --- */}
-      <section className="py-24 px-6 max-w-7xl mx-auto">
+      <section className="py-24 px-6 max-w-7xl mx-auto" id="systems">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-blue-600 font-semibold tracking-wide uppercase text-sm mb-3">
             Rozwiązania "Szyte na miarę"
