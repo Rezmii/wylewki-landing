@@ -535,7 +535,7 @@ export default function Home() {
           </Card>
 
           {/* SYSTEM 3: SAFETY & DECO (Zasypowy) */}
-          <Card className="border-slate-200 shadow-sm hover:shadow-md transition-all relative overflow-hidden">
+          <Card className="border-blue-600 shadow-sm hover:shadow-md transition-all relative overflow-hidden">
             {/* Badge "Polecany" */}
             <div className="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
               WYBÓR TOI TOI POLSKA
@@ -565,15 +565,15 @@ export default function Home() {
               </p>
               <ul className="space-y-3 text-sm text-slate-600">
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-green-500" />
+                  <CheckCircle2 className="h-4 w-4 text-blue-600" />
                   Wysoka antypoślizgowość
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-green-500" />
+                  <CheckCircle2 className="h-4 w-4 text-blue-600" />
                   Estetyczny wygląd (Płatki)
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-green-500" />
+                  <CheckCircle2 className="h-4 w-4 text-blue-600" />
                   Maskowanie nierówności
                 </li>
               </ul>
