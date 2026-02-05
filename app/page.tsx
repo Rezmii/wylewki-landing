@@ -33,7 +33,11 @@ import {
   History, // Do "35 lat tradycji"
   Award, // Do "ISO"
   PackageOpen, // Do "Małych partii / Elastyczności"
-  Globe2, // Do "Made in EU"
+  Globe2,
+  Droplets,
+  Sun,
+  Zap,
+  Beaker, // Do "Made in EU"
 } from "lucide-react";
 import { IntentType } from "@/app/actions";
 
@@ -124,7 +128,8 @@ export default function Home() {
           >
             {/* Opcjonalnie ikonka: <Layers className="h-6 w-6 text-blue-600" /> */}
             <div className="font-bold text-xl tracking-tight text-slate-900">
-              WYLEWKI-<span className="text-blue-600">PRZEMYSŁOWE.PL</span>
+              WYLEWKI-<span className="text-blue-600">PRZEMYSŁOWE</span>
+              <span className="text-slate-400">.PL</span>
             </div>
           </div>
 
@@ -419,18 +424,18 @@ export default function Home() {
       </section>
 
       {/* --- SEKCJA PAKIETY SYSTEMOWE (Nowość) --- */}
-      <section className="py-24 px-6 max-w-7xl mx-auto" id="systems">
+      <section className="pt-24 px-6 max-w-7xl mx-auto" id="systems">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-blue-600 font-semibold tracking-wide uppercase text-sm mb-3">
-            Rozwiązania "Szyte na miarę"
+            Jeden produkt - Wiele zastosowań
           </h2>
           <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-            Dobierz system do obciążeń Twojej hali
+            Baza C-GUARD® EP 304
           </h3>
           <p className="text-lg text-slate-600">
-            Nie każda posadzka wymaga pancernej wylewki. Oferujemy trzy
-            sprawdzone systemy C-GUARD®, od ekonomicznego odpylenia po
-            ekstremalną wytrzymałość.
+            Sercem naszych rozwiązań jest żywica EP 304. W zależności od metody
+            aplikacji (wałek vs wylewka) oraz dodatków (piasek/płatki), uzyskasz
+            system idealnie dopasowany do Twojego budżetu.
           </p>
         </div>
 
@@ -477,25 +482,18 @@ export default function Home() {
                 className="w-full mt-4"
                 onClick={() => scrollToContact("quote")}
               >
-                Wyceń ten system
+                Wyceń ten wariant
               </Button>
             </CardContent>
           </Card>
 
           {/* SYSTEM 2: HEAVY DUTY (Wylewany - Bestseller) */}
-          <Card className="border-blue-600 shadow-xl scale-105 z-10 relative">
-            {/* Badge "Polecany" */}
-            <div className="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
-              WYBÓR TOI TOI POLSKA
-            </div>
-
+          <Card className="border-slate-200 shadow-sm hover:shadow-md transition-all relative overflow-hidden">
             <CardHeader className="pb-4">
-              <div className="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <Layers className="h-6 w-6 text-blue-600" />
+              <div className="h-12 w-12 bg-slate-100 rounded-lg flex items-center justify-center mb-4">
+                <Layers className="h-6 w-6 text-slate-600" />
               </div>
-              <CardTitle className="text-xl text-blue-700">
-                System HEAVY DUTY
-              </CardTitle>
+              <CardTitle className="text-xl">System HEAVY DUTY</CardTitle>
               <p className="text-sm text-slate-500 font-medium">
                 Wylewka Samopoziomująca
               </p>
@@ -508,40 +506,47 @@ export default function Home() {
                 </span>
               </div>
               <p className="text-slate-600 text-sm">
-                Nasz flagowy system na bazie <strong>C-GUARD® EP 304</strong>.
-                Tworzy gładką, pancerną taflę o grubości 2-4mm. Pod wózki
-                widłowe.
+                Pełny system przemysłowy na bazie{" "}
+                <strong>C-GUARD® EP 304</strong>. Tworzy gładką, pancerną taflę
+                o grubości 2-4mm. Pod wózki widłowe.
               </p>
               <ul className="space-y-3 text-sm text-slate-700 font-medium">
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-green-500" />
-                  Pełna odporność na wózki widłowe
+                  <CheckCircle2 className="h-4 w-4 text-blue-600" />
+                  Pełna odporność na ciężki sprzęt
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-green-500" />
+                  <CheckCircle2 className="h-4 w-4 text-blue-600" />
                   Efekt "Lustra" (Samopoziom)
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-green-500" />
+                  <CheckCircle2 className="h-4 w-4 text-blue-600" />
                   Żywotność 10+ lat
                 </li>
               </ul>
               <Button
-                className="w-full mt-4 bg-blue-600 hover:bg-blue-700"
+                variant="outline"
+                className="w-full mt-4"
                 onClick={() => scrollToContact("quote")}
               >
-                Zapytaj o ten system
+                Wyceń wariant
               </Button>
             </CardContent>
           </Card>
 
           {/* SYSTEM 3: SAFETY & DECO (Zasypowy) */}
-          <Card className="border-slate-200 shadow-sm hover:shadow-md transition-all">
+          <Card className="border-slate-200 shadow-sm hover:shadow-md transition-all relative overflow-hidden">
+            {/* Badge "Polecany" */}
+            <div className="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+              WYBÓR TOI TOI POLSKA
+            </div>
             <CardHeader className="pb-4">
-              <div className="h-12 w-12 bg-slate-100 rounded-lg flex items-center justify-center mb-4">
-                <ShieldAlert className="h-6 w-6 text-slate-600" />
+              <div className="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                <ShieldAlert className="h-6 w-6 text-blue-600" />
               </div>
-              <CardTitle className="text-xl">System SAFETY / DECO</CardTitle>
+              <CardTitle className="text-xl text-blue-700">
+                System SAFETY / DECO
+              </CardTitle>
               <p className="text-sm text-slate-500 font-medium">
                 Zasyp Piaskiem lub Płatkami
               </p>
@@ -554,32 +559,76 @@ export default function Home() {
                 </span>
               </div>
               <p className="text-slate-600 text-sm">
-                Baza EP 304 z dodatkowym zasypem kruszywem kwarcowym
-                (antypoślizg R11-R13) lub płatkami dekoracyjnymi.
+                Baza EP 304 z dodatkowym zasypem. <strong>Płatki</strong>{" "}
+                (estetyka lastryko) lub <strong>Piasek Kwarcowy</strong>{" "}
+                (szorstkość R11-R13).
               </p>
               <ul className="space-y-3 text-sm text-slate-600">
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-blue-600" />
+                  <CheckCircle2 className="h-4 w-4 text-green-500" />
                   Wysoka antypoślizgowość
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-blue-600" />
+                  <CheckCircle2 className="h-4 w-4 text-green-500" />
                   Estetyczny wygląd (Płatki)
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-blue-600" />
+                  <CheckCircle2 className="h-4 w-4 text-green-500" />
                   Maskowanie nierówności
                 </li>
               </ul>
               <Button
-                variant="outline"
-                className="w-full mt-4"
+                className="w-full mt-4 bg-blue-600 hover:bg-blue-700"
                 onClick={() => scrollToContact("quote")}
               >
-                Wyceń wariant
+                Zapytaj o ten system
               </Button>
             </CardContent>
           </Card>
+        </div>
+        <div className="mt-16 bg-slate-50 border border-slate-200 rounded-2xl p-8 text-center max-w-4xl mx-auto">
+          <h4 className="text-lg font-bold text-slate-900 mb-2">
+            Potrzebujesz rozwiązań do zadań specjalnych?
+          </h4>
+          <p className="text-slate-600 mb-6">
+            Jako partner fabryki Chemcolor, mamy dostęp do pełnego portfolio
+            ponad 20 systemów, w tym:
+          </p>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm font-medium text-slate-700 mb-8">
+            <div className="flex items-center justify-center gap-2 bg-white p-3 rounded-lg border border-slate-100 shadow-sm">
+              <Droplets className="h-4 w-4 text-blue-500" />
+              Paroprzepuszczalne
+              <br />
+              (Waterborne)
+            </div>
+            <div className="flex items-center justify-center gap-2 bg-white p-3 rounded-lg border border-slate-100 shadow-sm">
+              <Sun className="h-4 w-4 text-orange-500" />
+              Odporne na UV
+              <br />
+              (Alifatyczne PU)
+            </div>
+            <div className="flex items-center justify-center gap-2 bg-white p-3 rounded-lg border border-slate-100 shadow-sm">
+              <Zap className="h-4 w-4 text-yellow-500" />
+              Anty-elektro
+              <br />
+              (Antystatyczne)
+            </div>
+            <div className="flex items-center justify-center gap-2 bg-white p-3 rounded-lg border border-slate-100 shadow-sm">
+              <Beaker className="h-4 w-4 text-green-500" />
+              Chemoodporne
+              <br />
+              (Piekarnie/Myjnie)
+            </div>
+          </div>
+
+          <Button
+            variant="link"
+            className="text-blue-600 font-semibold"
+            onClick={() => scrollToContact("collab")} // Lub link do pełnego katalogu PDF jeśli masz
+          >
+            Zapytaj technologa o dobór systemu niestandardowego &rarr;
+          </Button>
         </div>
       </section>
 
@@ -692,7 +741,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Karta "Pakiet Inwestora" (Zostawiamy tak jak ustaliliśmy wcześniej) */}
             <div className="bg-blue-600 rounded-2xl p-8 text-white shadow-xl shadow-blue-900/20 relative overflow-hidden">
               <div className="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
 
@@ -711,7 +759,7 @@ export default function Home() {
                     <ul className="mt-3 space-y-2 text-sm text-blue-50">
                       <li className="flex items-center gap-2">
                         <CheckCircle2 className="h-4 w-4 text-green-300" />
-                        Karta Techniczna (TDS) + MSDS
+                        Karta Techniczna (TDS) + SDS
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle2 className="h-4 w-4 text-green-300 mt-0.5 shrink-0" />
@@ -807,8 +855,9 @@ export default function Home() {
                   </h4>
                   <p className="text-slate-100 leading-relaxed">
                     Realizacja zamówień w modelu bezpośrednim z fabryki
-                    Chemcolor Sevnica. Terminowe dostarczenie sytemu
-                    posadzkowego zgodnego z wymogami technicznymi.
+                    Chemcolor Sevnica. Terminowe dostarczenie systemu{" "}
+                    <strong className="text-white">C-GUARD® EP 304</strong>{" "}
+                    zgodnego z wymogami technicznymi.
                   </p>
                 </div>
               </div>
@@ -894,16 +943,82 @@ export default function Home() {
             <ContactForm intent={formIntent} />
           </div>
 
-          {/* Dodatkowe info pod formularzem */}
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-center text-slate-400 text-sm border-t border-slate-800 pt-8 animate-in fade-in slide-in-from-bottom-4 duration-500 key={formIntent + 'steps'}">
-            {activeContent.steps.map((step, index) => (
-              <div key={index}>
-                <strong className="text-white block mb-1 text-base">
-                  {step.title}
-                </strong>
-                {step.desc}
+          <div className="mt-12 pt-8 border-t border-slate-800 animate-in fade-in slide-in-from-bottom-4 duration-500 key={formIntent + 'steps'}">
+            {/* KROKI PROCESU */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center text-slate-400 text-sm mb-12">
+              {activeContent.steps.map((step, index) => (
+                <div key={index}>
+                  <strong className="text-white block mb-1 text-base">
+                    {step.title}
+                  </strong>
+                  {step.desc}
+                </div>
+              ))}
+            </div>
+
+            {/* BEZPOŚREDNI KONTAKT (Dla tych co wolą dzwonić) */}
+            <div className="flex flex-col md:flex-row items-center justify-center gap-8 text-center md:text-left bg-slate-800/50 rounded-xl p-6 border border-slate-700">
+              <div className="flex flex-col">
+                <span className="text-xs text-slate-500 uppercase font-bold tracking-wider mb-1">
+                  Bezpośredni kontakt
+                </span>
+                <span className="text-white font-semibold text-lg">
+                  Bartosz Rezmer
+                </span>
+                <span className="text-slate-400 text-sm">
+                  Partner Techniczny Chemcolor
+                </span>
               </div>
-            ))}
+
+              <div className="flex flex-col sm:flex-row gap-6">
+                <a
+                  href="tel:+48724537326"
+                  className="flex items-center gap-3 text-slate-300 hover:text-white transition-colors group"
+                >
+                  <div className="bg-slate-700 group-hover:bg-blue-600 p-2 rounded-lg transition-colors">
+                    {/* Ikonka Phone z Lucide */}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                  </div>
+                  <span className="font-mono text-lg">+48 724 537 326</span>
+                </a>
+
+                <a
+                  href="mailto:biuro@wylewki-przemyslowe.pl"
+                  className="flex items-center gap-3 text-slate-300 hover:text-white transition-colors group"
+                >
+                  <div className="bg-slate-700 group-hover:bg-blue-600 p-2 rounded-lg transition-colors">
+                    {/* Ikonka Mail z Lucide */}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <rect width="20" height="16" x="2" y="4" rx="2" />
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                    </svg>
+                  </div>
+                  <span className="text-lg">biuro@wylewki-przemyslowe.pl</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -915,8 +1030,8 @@ export default function Home() {
             {/* Kolumna 1: Marka i Partnerstwo */}
             <div className="md:col-span-2">
               <div className="font-bold text-2xl tracking-tight text-slate-900 mb-4">
-                WYLEWKI<span className="text-blue-600">EU</span>{" "}
-                {/* Twoje logo tekstowe */}
+                WYLEWKI-<span className="text-blue-600">PRZEMYSŁOWE</span>
+                <span className="text-slate-400">.PL</span>
               </div>
               <p className="text-slate-500 leading-relaxed mb-6 max-w-sm">
                 Specjalistyczne rozwiązania posadzkowe dla przemysłu.
@@ -924,9 +1039,9 @@ export default function Home() {
                 "just-in-time".
               </p>
 
-              {/* Partnerstwo (Subtelne) */}
-              <div className="inline-flex items-center gap-2 text-sm font-medium text-slate-600 bg-white border border-slate-200 px-3 py-2 rounded-lg">
-                <div className="h-2 w-2 rounded-full bg-green-500"></div>
+              {/* Partnerstwo */}
+              <div className="inline-flex items-center gap-2 text-sm font-medium text-slate-600 bg-white border border-slate-200 px-3 py-2 rounded-lg shadow-sm">
+                <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse"></div>
                 Partner handlowy Chemcolor Sevnica d.o.o.
               </div>
             </div>
@@ -938,25 +1053,35 @@ export default function Home() {
                 <li>
                   <a
                     href="tel:+48724537326"
-                    className="flex items-center gap-3 text-slate-600 hover:text-blue-600 transition-colors"
+                    className="flex items-center gap-3 text-slate-600 hover:text-blue-600 transition-colors group"
                   >
-                    <Phone className="h-5 w-5 text-blue-600" />
-                    <span>+48 724 537 326</span>
+                    <div className="bg-white p-2 rounded-md border border-slate-200 group-hover:border-blue-200 transition-colors">
+                      <Phone className="h-4 w-4 text-blue-600" />
+                    </div>
+                    <span className="font-medium">+48 724 537 326</span>
                   </a>
                 </li>
                 <li>
                   <a
                     href="mailto:biuro@wylewki-przemyslowe.pl"
-                    className="flex items-center gap-3 text-slate-600 hover:text-blue-600 transition-colors"
+                    className="flex items-center gap-3 text-slate-600 hover:text-blue-600 transition-colors group"
                   >
-                    <Mail className="h-5 w-5 text-blue-600" />
-                    <span>biuro@wylewki-przemyslowe.pl</span>
+                    <div className="bg-white p-2 rounded-md border border-slate-200 group-hover:border-blue-200 transition-colors">
+                      <Mail className="h-4 w-4 text-blue-600" />
+                    </div>
+                    <span className="font-medium">
+                      biuro@wylewki-przemyslowe.pl
+                    </span>
                   </a>
                 </li>
                 <li className="flex items-start gap-3 text-slate-600">
-                  <MapPin className="h-5 w-5 text-blue-600 shrink-0" />
-                  <span>
-                    Lubawska 3/74
+                  <div className="bg-white p-2 rounded-md border border-slate-200 mt-0.5">
+                    <MapPin className="h-4 w-4 text-blue-600 shrink-0" />
+                  </div>
+                  <span className="text-sm leading-relaxed">
+                    Brezit Bartosz Rezmer
+                    <br />
+                    ul. Lubawska 3/74
                     <br />
                     81-066 Gdynia
                   </span>
@@ -964,37 +1089,42 @@ export default function Home() {
               </ul>
             </div>
 
-            {/* Kolumna 3: Dane Rejestrowe (Ważne w PL!) */}
+            {/* Kolumna 3: Dane Rejestrowe */}
             <div>
-              <h4 className="font-bold text-slate-900 mb-6">Dane firmy</h4>
-              <ul className="space-y-4 text-sm text-slate-500">
-                <li className="font-medium text-slate-900">
+              <h4 className="font-bold text-slate-900 mb-6">Dane rejestrowe</h4>
+              <ul className="space-y-4 text-sm text-slate-500 bg-white p-4 rounded-xl border border-slate-200">
+                <li className="font-medium text-slate-900 border-b border-slate-100 pb-2">
                   Brezit Bartosz Rezmer
                 </li>
+                <li className="flex items-center gap-2 pt-1">
+                  <FileText className="h-4 w-4 text-slate-400" />
+                  NIP:{" "}
+                  <span className="font-mono text-slate-700">9581755519</span>
+                </li>
                 <li className="flex items-center gap-2">
-                  <FileText className="h-4 w-4" />
-                  NIP: 9581755519
+                  <Building2 className="h-4 w-4 text-slate-400" />
+                  REGON: 521639396
                 </li>
               </ul>
             </div>
           </div>
 
-          {/* Pasek Dolny: Copyright i Linki Prawne */}
+          {/* Pasek Dolny */}
           <div className="pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
             <p>
-              &copy; {new Date().getFullYear()} Brezit Bartosz Rezmer. Wszelkie
-              prawa zastrzeżone.
+              &copy; {new Date().getFullYear()} Brezit. Wszelkie prawa
+              zastrzeżone.
             </p>
-            <div className="flex gap-6">
+            <div className="flex gap-6 font-medium">
               <Link
                 href="/polityka-prywatnosci"
-                className="hover:text-slate-900 transition-colors"
+                className="hover:text-blue-600 transition-colors"
               >
                 Polityka Prywatności
               </Link>
               <Link
                 href="/regulamin"
-                className="hover:text-slate-900 transition-colors"
+                className="hover:text-blue-600 transition-colors"
               >
                 Regulamin
               </Link>
