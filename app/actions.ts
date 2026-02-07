@@ -1,60 +1,60 @@
-'use server'
+"use server";
 
-import { Resend } from 'resend'
+import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-export type IntentType = 'quote' | 'documents' | 'collab'
+export type IntentType = "quote" | "documents" | "collab";
 
 type LeadData = {
-	name: string
-	company: string
-	email: string
-	phone: string
-	area: string
-	message: string
-	intent: IntentType
-}
+  name: string;
+  company: string;
+  email: string;
+  phone: string;
+  area: string;
+  message: string;
+  intent: IntentType;
+};
 
 export async function sendLeadMagnet(data: LeadData) {
-	try {
-		if (!data.email || !data.phone) {
-			return { success: false, error: 'Wymagane pola są puste.' }
-		}
+  try {
+    if (!data.email || !data.phone) {
+      return { success: false, error: "Wymagane pola są puste." };
+    }
 
-		let emailSubject = ''
-		let emailIntro = ''
-		let adminSubject = ''
+    let emailSubject = "";
+    let emailIntro = "";
+    let adminSubject = "";
 
-		switch (data.intent) {
-			case 'quote':
-				emailSubject = 'Twoja Wycena + Dokumentacja C-GUARD EP 304'
-				emailIntro = `Dziękujemy za prośbę o wycenę. Twój opiekun techniczny przeanalizuje metraż (${data.area} m²) i wróci z ofertą w ciągu 24h. W międzyczasie przesyłam dokumentację techniczną produktu, o który pytasz.`
-				adminSubject = `🔥 LEAD WYCENA: ${data.company}`
-				break
+    switch (data.intent) {
+      case "quote":
+        emailSubject = "Twoja Wycena + Dokumentacja C-GUARD EP 304";
+        emailIntro = `Dziękujemy za prośbę o wycenę. Twój opiekun techniczny przeanalizuje metraż (${data.area} m²) i wróci z ofertą w ciągu 24h. W międzyczasie przesyłam dokumentację techniczną produktu, o który pytasz.`;
+        adminSubject = `🔥 LEAD WYCENA: ${data.company}`;
+        break;
 
-			case 'documents':
-				emailSubject = 'Twoje dokumenty: C-GUARD EP 304 + Case Study'
-				emailIntro = `Oto komplet dokumentów, o które prosiłeś. Znajdziesz tu karty techniczne oraz nasze Case Study z wdrożenia w Toi Toi Polska. Daj znać, jeśli będziesz potrzebować również wyceny materiału.`
-				adminSubject = `📄 POBRANIE PLIKÓW: ${data.company}`
-				break
+      case "documents":
+        emailSubject = "Twoje dokumenty: C-GUARD EP 304 + Case Study";
+        emailIntro = `Oto komplet dokumentów, o które prosiłeś. Znajdziesz tu karty techniczne oraz nasze Case Study z wdrożenia w Toi Toi Polska. Daj znać, jeśli będziesz potrzebować również wyceny materiału.`;
+        adminSubject = `📄 POBRANIE PLIKÓW: ${data.company}`;
+        break;
 
-			case 'collab':
-				emailSubject = 'Twoje zapytanie o realizację - Brezit / Chemcolor'
-				emailIntro = `Dziękujemy za kontakt. Przeanalizujemy Twój projekt pod kątem technologicznym. W załączniku przesyłam Case Study z Toi Toi oraz specyfikację, abyś zobaczył, jakich standardów używamy.`
-				adminSubject = `💡 PYTANIE O REALIZACJĘ: ${data.company || 'Nowy Klient'}`
-				break
+      case "collab":
+        emailSubject = "Twoje zapytanie o realizację - Brezit / Chemcolor";
+        emailIntro = `Dziękujemy za kontakt. Przeanalizujemy Twój projekt pod kątem technologicznym. W załączniku przesyłam Case Study z Toi Toi oraz specyfikację, abyś zobaczył, jakich standardów używamy.`;
+        adminSubject = `💡 PYTANIE O REALIZACJĘ: ${data.company || "Nowy Klient"}`;
+        break;
 
-			default:
-				emailSubject = 'Dokumentacja C-GUARD EP 304'
-				emailIntro = 'Dziękujemy za kontakt. Przesyłamy zamówione materiały.'
-				adminSubject = `NOWY LEAD: ${data.company}`
-		}
-		await resend.emails.send({
-			from: 'Brezit Wylewki <biuro@wylewki-przemyslowe.pl>',
-			to: data.email,
-			subject: emailSubject,
-			html: `
+      default:
+        emailSubject = "Dokumentacja C-GUARD EP 304";
+        emailIntro = "Dziękujemy za kontakt. Przesyłamy zamówione materiały.";
+        adminSubject = `NOWY LEAD: ${data.company}`;
+    }
+    await resend.emails.send({
+      from: "Brezit Wylewki <biuro@wylewki-przemyslowe.pl>",
+      to: data.email,
+      subject: emailSubject,
+      html: `
         <div style="font-family: sans-serif; color: #1e293b; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #2563eb;">Dzień dobry, ${data.name}!</h2>
           <p>Dziękujemy za zainteresowanie systemami posadzkowymi Chemcolor.</p>
@@ -64,7 +64,7 @@ export async function sendLeadMagnet(data: LeadData) {
             <p style="margin-top: 0; font-weight: bold;">Do pobrania:</p>
             <ul style="padding-left: 20px;">
                <li style="margin-bottom: 10px;">
-                 <a href="https://wylewki-przemyslowe.pl/dokumenty/case-study-toi-toi-polska.pdf" style="color: #2563eb; font-weight: bold; text-decoration: none;">
+                 <a href="https://wylewki-przemyslowe.pl/dokumenty/Case-Study-Toi-Toi-Posadzki-Przemyslowe.pdf" style="color: #2563eb; font-weight: bold; text-decoration: none;">
                    📥 Case Study: Wdrożenie w Toi Toi Polska (Wariant z Płatkami)
                  </a>
                </li>
@@ -115,13 +115,13 @@ export async function sendLeadMagnet(data: LeadData) {
           </p>
         </div>
       `,
-		})
+    });
 
-		await resend.emails.send({
-			from: 'Brezit Wylewki <biuro@wylewki-przemyslowe.pl>',
-			to: 'bartoszrezmer20@gmail.com',
-			subject: adminSubject,
-			html: `
+    await resend.emails.send({
+      from: "Brezit Wylewki <biuro@wylewki-przemyslowe.pl>",
+      to: "bartoszrezmer20@gmail.com",
+      subject: adminSubject,
+      html: `
         <h3>Masz nowego potencjalnego klienta!</h3>
         <ul>
           <li><strong>Firma:</strong> ${data.company}</li>
@@ -133,11 +133,11 @@ export async function sendLeadMagnet(data: LeadData) {
         <p><strong>Wiadomość dodatkowa:</strong><br>${data.message}</p>
         <p style="color: red; font-weight: bold;">Zadzwoń do nich jak najszybciej!</p>
       `,
-		})
+    });
 
-		return { success: true }
-	} catch (error) {
-		console.error('Błąd wysyłania maila:', error)
-		return { success: false, error: 'Błąd serwera. Spróbuj ponownie później.' }
-	}
+    return { success: true };
+  } catch (error) {
+    console.error("Błąd wysyłania maila:", error);
+    return { success: false, error: "Błąd serwera. Spróbuj ponownie później." };
+  }
 }
