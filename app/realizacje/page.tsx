@@ -111,9 +111,9 @@ export default function CaseStudyPage() {
               <li className="flex gap-3 text-sm text-slate-700">
                 <span className="font-bold text-red-500">01.</span>
                 <span>
-                  <strong>Ryzyko pęknięć w transporcie:</strong> Moduły
-                  kontenerowe "pracują" podczas załadunku HDS. Kruche posadzki
-                  mineralne ulegałyby uszkodzeniu.
+                  <strong>Ryzyko pęknięć w transporcie:</strong> Konstrukcja
+                  modułów ulega odkształceniom podczas załadunku HDS. Sztywne
+                  posadzki mineralne są narażone na pękanie.
                 </span>
               </li>
               <li className="flex gap-3 text-sm text-slate-700">
