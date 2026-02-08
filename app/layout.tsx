@@ -8,11 +8,12 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "WylewkiEU - Specjalistyczne Wylewki Przemysłowe | Bezpośredni Import",
+  title:
+    "Wylewki-Przemyslowe.pl - Specjalistyczne Wylewki Przemysłowe | Bezpośredni Import",
   description:
-    "Dostarczamy certyfikowane wylewki przemysłowe bezpośrednio od producenta. Omiń pośredników. Sprawdzone rozwiązania dla hal i magazynów.",
+    "Dostarczamy certyfikowane wylewki przemysłowe bezpośrednio od producenta. Omiń pośredników. Sprawdzone rozwiązania dla hal, magazynów i producentów kontenerów.",
   openGraph: {
-    title: "WylewkiEU - Specjalistyczne Wylewki Przemysłowe",
+    title: "Wylewki-Przemyslowe.pl - Specjalistyczne Wylewki Przemysłowe",
     description:
       "Jakość Premium w cenie Europy Środkowej. Sprawdź naszą ofertę dla przemysłu.",
     type: "website",
